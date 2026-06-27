@@ -17,10 +17,17 @@ app = marimo.App(width="full")
 
 @app.cell
 def _():
+    import pathlib
+    import sys
+
     import marimo as mo
     import numpy as np
     import plotly.graph_objects as go
     from plotly.subplots import make_subplots
+
+    project_src = pathlib.Path(__file__).parent / "src"
+    if project_src.exists():
+        sys.path.insert(0, str(project_src))
 
     from attention_sink_lab.probe import probe_attention, probe_perturbation
     from attention_sink_lab.prompt_suite import probe_prompt_suite
