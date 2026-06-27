@@ -25,7 +25,7 @@ def _():
     import plotly.graph_objects as go
     from plotly.subplots import make_subplots
 
-    project_src = pathlib.Path(__file__).parent / "src"
+    project_src = pathlib.Path("src").resolve()
     if project_src.exists():
         sys.path.insert(0, str(project_src))
 
